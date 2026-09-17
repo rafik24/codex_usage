@@ -1,0 +1,4 @@
+interface:
+  display_name: "Codex Usage"
+  short_description: "Configure a live Codex usage footer"
+  default_prompt: "Use $codex-usage to configure my live Codex CLI usage footer."

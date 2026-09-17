@@ -1,0 +1,27 @@
+{
+  "name": "codex-usage",
+  "version": "0.1.0",
+  "description": "Show live permissions, context, and usage limits in the Codex CLI footer.",
+  "author": {
+    "name": "rafik24",
+    "url": "https://github.com/rafik24"
+  },
+  "homepage": "https://github.com/rafik24/codex_usage#readme",
+  "repository": "https://github.com/rafik24/codex_usage",
+  "license": "MIT",
+  "keywords": ["codex", "usage", "status-line", "rate-limits"],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Codex Usage",
+    "shortDescription": "Live usage and context in the CLI footer.",
+    "longDescription": "Configures the native Codex CLI status line to show permissions, context remaining, context window size, and the current five-hour and weekly usage limits.",
+    "developerName": "rafik24",
+    "category": "Productivity",
+    "capabilities": ["Interactive", "Write"],
+    "websiteURL": "https://github.com/rafik24/codex_usage",
+    "defaultPrompt": [
+      "Configure my live Codex usage footer.",
+      "Remove the Codex usage footer and restore my prior setting."
+    ]
+  }
+}
