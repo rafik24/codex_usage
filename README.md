@@ -41,6 +41,30 @@ The helper preserves unrelated settings, creates `config.toml.codex-usage.bak`, 
 
 To inspect or remove the configuration, ask Codex to use `$codex-usage`, or run the bundled helper with `--check` or `--remove`.
 
+## Claude Code
+
+The same footer for Claude Code, built from the JSON Claude Code pipes to its status-line command:
+
+```text
+Opus 5.5 · high · Context 79% left · 1M window · 5h 97% left (14:30) · weekly 97% left (Fri 11:00)
+```
+
+Model · effort · context left · window size · 5-hour and weekly limits left, with reset times (which the Codex
+footer cannot show). Colour turns yellow under 50% left and red under 20%; set `NO_COLOR=1` to disable it.
+Like the Codex footer it makes no network requests, writes no files and reads no tokens. Rate limits appear
+once Claude Code has usage data (subscription accounts).
+
+```bash
+python3 plugins/claude-usage/configure_claude_status_line.py           # install
+python3 plugins/claude-usage/configure_claude_status_line.py --check
+python3 plugins/claude-usage/configure_claude_status_line.py --remove  # restores the previous statusLine
+```
+
+Install copies `statusline.py` to `~/.claude/claude-usage/` (so this checkout can move) and sets `statusLine` in
+`~/.claude/settings.json`, backing the file up once to `settings.json.claude-usage.bak`. It refuses to replace a
+different status line unless `--force` is given; the replaced one is recorded and restored by `--remove`.
+`CLAUDE_CONFIG_DIR` overrides `~/.claude`. Requires Python 3.9+ on PATH.
+
 ## Limitations
 
 - Native footer items show remaining percentages but not reset timestamps. Run `/status` for reset times.
